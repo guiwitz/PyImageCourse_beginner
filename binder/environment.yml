@@ -1,0 +1,17 @@
+name: improc_beginner
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - numpy
+  - matplotlib
+  - scikit-image
+  - jupyter
+  - jupyterlab
+  - ipywidgets
+  - pandas
+  - nodejs
+  - jupyter_contrib_nbextensions
+  - ipyvolume
+  - pip:
+    - requests

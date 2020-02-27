@@ -1,0 +1,11 @@
+python installation/download_data.py
+
+mkdir PyImageCourse_beginner
+mv *.ipynb PyImageCourse_beginner/
+
+jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
+jupyter labextension install ipyvolume --no-build
+jupyter labextension install jupyter-threejs --no-build
+jupyter labextension install itk-jupyter-widgets --no-build
+
+jupyter lab build
