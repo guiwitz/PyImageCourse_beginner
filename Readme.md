@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/PyImageCourse_beginner/master?filepath=00-Index.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/PyImageCourse_beginner/master?filepath=PyImageCourse_beginner%2F00-Index.ipynb)
 
 # Image processing for beginners
 
