@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/PyImageCourse_beginner/master?filepath=00-Index.ipynb)
+
 # Image processing for beginners
 
 This repository contains a set of Jupyter notebooks to learn how to do basic image processing using Python and the scientific packages Numpy, Scikit-image, Matplotlib and Pandas.
