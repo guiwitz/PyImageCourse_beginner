@@ -3,15 +3,17 @@ channels:
   - conda-forge
 dependencies:
   - pip
+  - python=3.7
   - numpy
   - matplotlib
   - scikit-image
   - jupyter
-  - jupyterlab
+  - jupyterlab=1.2
   - ipywidgets
   - pandas
   - nodejs
   - jupyter_contrib_nbextensions
   - ipyvolume
+  - ipympl
   - pip:
     - requests
