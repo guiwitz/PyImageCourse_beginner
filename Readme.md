@@ -11,5 +11,5 @@ The material assumes no pre-existing knowledge in programming but some familiari
 
 You don't need to install anything on your computer to interactively run the notebooks. You can use the badges at the top of this Readme to run the notebooks either in the classical Jupyter environment via MyBinder or as Google Colab notebooks. The Mybinder sessions are only temporary, i.e. changes you make to notebooks or new notebooks are *erases* between sessions. When using Colab, to keep your changes, you need to *save a copy* of the notebook you are modifying. The saving is done in your Google Drive.
 
-# Re-using the material and fixing errors
+## Re-using the material and fixing errors
 Feel free to re-use this material to learn or to teach image processing. If you think some changes are needed, please use the issue tracker to discuss them, as the classical pull request system is not yet ideal for Jupyter Notebooks.
