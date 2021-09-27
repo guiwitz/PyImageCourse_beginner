@@ -1,4 +1,1 @@
 python installation/download_data.py
-
-mkdir PyImageCourse_beginner
-mv *.ipynb PyImageCourse_beginner/
