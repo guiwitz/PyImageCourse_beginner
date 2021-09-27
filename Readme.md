@@ -1,5 +1,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/PyImageCourse_beginner/e95337e24ae77357e24f2d49bf521203aaec6012?urlpath=lab)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/PyImageCourse_beginner/blob/master)
+[![DOI](https://zenodo.org/badge/173477371.svg)](https://zenodo.org/badge/latestdoi/173477371)
 
 # Image processing for beginners
 
