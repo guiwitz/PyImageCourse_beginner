@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Images as arrays &#8212; Image processing with Python for beginners</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. More on images" href="03-More_on_images.html" />
+    <link rel="prev" title="Python and notebook basics" href="01-Python_essentials.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Image processing for beginners
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python_essentials.html">
+   Python and notebook basics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Images as arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-More_on_images.html">
+   3. More on images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Thresholding.html">
+   4. Thresholding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Filtering.html">
+   5. Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Regions.html">
+   6. Region properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Pipeline.html">
+   7. Creating a pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-Logical_flow.html">
+   8. Loops and conditions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Functions.html">
+   Methods and functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Structures.html">
+   Python structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cheatsheet.html">
+   Cheetsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Demo.html">
+   Demo
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-Images_as_arrays.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-Images_as_arrays.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-values">
+   Accessing values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-parts-of-the-array">
+   Accessing parts of the array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-ways-of-creating-arrays">
+   Other ways of creating arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematics-with-arrays">
+   Mathematics with arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-calculus">
+     Basic calculus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-functions">
+     Numpy functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-between-arrays">
+     Operations between arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-operations-and-indexing">
+   Logical operations and indexing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2. Images as arrays</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-values">
+   Accessing values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-parts-of-the-array">
+   Accessing parts of the array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-ways-of-creating-arrays">
+   Other ways of creating arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematics-with-arrays">
+   Mathematics with arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-calculus">
+     Basic calculus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-functions">
+     Numpy functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-between-arrays">
+     Operations between arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-operations-and-indexing">
+   Logical operations and indexing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="images-as-arrays">
+<h1>2. Images as arrays<a class="headerlink" href="#images-as-arrays" title="Permalink to this headline">¶</a></h1>
+<p>At the end of the introduction we have seen that images are imported as a specific data structure called an <code class="docutils literal notranslate"><span class="pre">array</span></code>. These arrays are implemented by a package called Numpy which is foundational to the entire scientific Python ecosystem: as soon as you have to perform numerical computations, it’s very likely that you will use Numpy arrays. Here we give an introduction to these arrays, specifically using images as examples.</p>
+<p>Let us first import the Numpy package as well as scikit-image which will allow us to import images and Matplotlib with which we can look at images:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">skimage</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We import now an image from an online microscopy repository, using an url. This is fluorescence microscopy image of Saccharomyces cerevisiae with a signal accumulating in the vacuoles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://cildata.crbs.ucsd.edu/media/images/13901/13901.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[219, 225, 220, ..., 256, 258, 272],
+       [218, 211, 217, ..., 270, 268, 278],
+       [217, 217, 214, ..., 263, 268, 262],
+       ...,
+       [337, 343, 321, ..., 266, 287, 285],
+       [320, 323, 339, ..., 268, 295, 281],
+       [329, 353, 335, ..., 276, 281, 291]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the type tells us, and as we can see from the output, the import function returned to us a Numpy ndarray or just array. nd stands for n-dimensional as Numpy can handle data of any dimension. The above output only shows us a fraction of the image the <code class="docutils literal notranslate"><span class="pre">...</span></code> indicating non-displayed values.</p>
+<p>We have seen in the introduction that any variable in Python is more than just a variable: it has also functions (methods) and properties. This is also valid here for Numpy arrays. For example we can ask what is the shape of the array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1024, 1360)
+</pre></div>
+</div>
+</div>
+</div>
+<p>These numbers tell us that our array has 1024 lines and 1360 columns. In the above output we also see an indication <code class="docutils literal notranslate"><span class="pre">dtype</span></code>. This tells us what is the type of the pixels inside the array. The variable <code class="docutils literal notranslate"><span class="pre">image</span></code> is an array but its content can vary: we could have floating point values, integers etc. here <code class="docutils literal notranslate"><span class="pre">uint16</span></code> tells us we have unsigned (no negative values) integers in 16 bit, i.e. up to <span class="math notranslate nohighlight">\(2^{16}\)</span> different possible pixel values.</p>
+<p>We have seen in the introduction that we could display the image using the <code class="docutils literal notranslate"><span class="pre">imshow</span></code> function. Let’s do it here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_9_0.png" src="_images/02-Images_as_arrays_9_0.png" />
+</div>
+</div>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">image</span></code> input we also used an <em>optional</em> parameter called <code class="docutils literal notranslate"><span class="pre">cmap</span></code> here and that allows us to set a certain colormap, here a gray one. You can find more here: <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential">https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential</a></p>
+<div class="section" id="accessing-values">
+<h2>Accessing values<a class="headerlink" href="#accessing-values" title="Permalink to this headline">¶</a></h2>
+<p>We can again display part of the array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[219, 225, 220, ..., 256, 258, 272],
+       [218, 211, 217, ..., 270, 268, 278],
+       [217, 217, 214, ..., 263, 268, 262],
+       ...,
+       [337, 343, 321, ..., 266, 287, 285],
+       [320, 323, 339, ..., 268, 295, 281],
+       [329, 353, 335, ..., 276, 281, 291]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first questions is: how do we extract a certain value from the array? Each of the numbers we see above represents a pixel and it has a location (row, column). We can use that location to “extract” the value from the array. For example if we want the top left pixel at <code class="docutils literal notranslate"><span class="pre">row=0</span></code> and <code class="docutils literal notranslate"><span class="pre">column=0</span></code> we use these coordinates within <strong>square parentheses or brackets</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>219
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now even change that value by reassigning another one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  2, 225, 220, ..., 256, 258, 272],
+       [218, 211, 217, ..., 270, 268, 278],
+       [217, 217, 214, ..., 263, 268, 262],
+       ...,
+       [337, 343, 321, ..., 266, 287, 285],
+       [320, 323, 339, ..., 268, 295, 281],
+       [329, 353, 335, ..., 276, 281, 291]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we have indeed changed the value of that top left pixel!</p>
+</div>
+<div class="section" id="accessing-parts-of-the-array">
+<h2>Accessing parts of the array<a class="headerlink" href="#accessing-parts-of-the-array" title="Permalink to this headline">¶</a></h2>
+<p>Very often we don’t need to access a single pixel, but an entire region. In other terms we want to <strong>crop</strong> the image. Let’s look again at the image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_20_0.png" src="_images/02-Images_as_arrays_20_0.png" />
+</div>
+</div>
+<p>Let’s say we want to focus our attention on a region in the middle of the image. We can for example take the rows 400-530 and columns 400-600. Instead of just using single coordinates we can now extract that part of the image using a <strong>range</strong> of pixels, the range being indicated via the <code class="docutils literal notranslate"><span class="pre">:</span></code> symbol. Here we write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">[</span><span class="mi">400</span><span class="p">:</span><span class="mi">530</span><span class="p">,</span> <span class="mi">400</span><span class="p">:</span><span class="mi">600</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[375, 352, 370, ..., 470, 452, 469],
+       [372, 368, 365, ..., 462, 458, 472],
+       [381, 370, 359, ..., 478, 461, 480],
+       ...,
+       [349, 365, 346, ..., 287, 285, 290],
+       [333, 349, 340, ..., 288, 276, 275],
+       [355, 351, 337, ..., 282, 274, 267]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can store this new smaller array into a new variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">400</span><span class="p">:</span><span class="mi">530</span><span class="p">,</span> <span class="mi">400</span><span class="p">:</span><span class="mi">600</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note that we additionally use here the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method. This ensures that whatever modification we make to the cropped version doesn’t affect the original image!</strong>.</p>
+<p>We can again plot this cropped image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_26_0.png" src="_images/02-Images_as_arrays_26_0.png" />
+</div>
+</div>
+<p>We can also check again the size of this cropped image. We expect 130 rows and 200 columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(130, 200)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If instead of selecting both rows and columns we only want to select a range of rows and take <strong>all</strong> columns, we can just use <code class="docutils literal notranslate"><span class="pre">:</span></code> alone:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">[</span><span class="mi">400</span><span class="p">:</span><span class="mi">530</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(130, 1360)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also leave out the <em>end</em> boundary and then it takes all the rows/columns from a certain index to the last one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="p">[</span><span class="mi">400</span><span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(624, 1360)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="other-ways-of-creating-arrays">
+<h2>Other ways of creating arrays<a class="headerlink" href="#other-ways-of-creating-arrays" title="Permalink to this headline">¶</a></h2>
+<p>In addition to create arrays by importing them, we can also generate them using Numpy functions. This can be useful to initialize some array that we can then re-use later.</p>
+<p>There are many different types of arrays that we can create. For example we can create arrays that only contain <code class="docutils literal notranslate"><span class="pre">0</span></code>s or <code class="docutils literal notranslate"><span class="pre">1</span></code>s and have a certain shape, e.g. 5 rows and 3 columns, using the <code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code> functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 1., 1.],
+       [1., 1., 1.],
+       [1., 1., 1.],
+       [1., 1., 1.],
+       [1., 1., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also create 1D arrays (only one row) with values regularly distributed. For example we can create an array with numbers from a given <code class="docutils literal notranslate"><span class="pre">start</span></code> value to a <code class="docutils literal notranslate"><span class="pre">stop</span></code> value in a certain <code class="docutils literal notranslate"><span class="pre">step</span></code> size:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  6,  8, 10])
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition the <code class="docutils literal notranslate"><span class="pre">random</span></code> submodule of Numpy allows us to create arrays with numbers taken from a given distribution. For example we can take numbers from a Poisson distribution of parameter <code class="docutils literal notranslate"><span class="pre">lam</span></code>. Remember that to access a submodule we use <code class="docutils literal notranslate"><span class="pre">np.submodule.function_name</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 5, 4, 2, 4],
+       [3, 3, 1, 2, 3],
+       [2, 2, 5, 5, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mathematics-with-arrays">
+<h2>Mathematics with arrays<a class="headerlink" href="#mathematics-with-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know how to create or import an array, we can start to do mathematics, or in our case image processing, with these arrays. The advantage of these structures is that we can do mathematics as if we were using plain numbers.</p>
+<div class="section" id="basic-calculus">
+<h3>Basic calculus<a class="headerlink" href="#basic-calculus" title="Permalink to this headline">¶</a></h3>
+<p>For example we can write the mathematical statement <span class="math notranslate nohighlight">\(y = x + 3\)</span>, and we can write the same thing with an entire array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_plus_three</span> <span class="o">=</span> <span class="n">cropped</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_plus_three</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[378, 355, 373, ..., 473, 455, 472],
+       [375, 371, 368, ..., 465, 461, 475],
+       [384, 373, 362, ..., 481, 464, 483],
+       ...,
+       [352, 368, 349, ..., 290, 288, 293],
+       [336, 352, 343, ..., 291, 279, 278],
+       [358, 354, 340, ..., 285, 277, 270]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[375, 352, 370, ..., 470, 452, 469],
+       [372, 368, 365, ..., 462, 458, 472],
+       [381, 370, 359, ..., 478, 461, 480],
+       ...,
+       [349, 365, 346, ..., 287, 285, 290],
+       [333, 349, 340, ..., 288, 276, 275],
+       [355, 351, 337, ..., 282, 274, 267]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the statement <code class="docutils literal notranslate"><span class="pre">cropped</span> <span class="pre">+</span> <span class="pre">3</span></code> is turned by Numpy into “add the value 3 to each pixel in the array called <code class="docutils literal notranslate"><span class="pre">cropped</span></code>. So we don’t have to explicitly add this value to each element, Numpy does it for us!</p>
+<p>You can use most common operations with arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">cropped</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="n">cropped</span> <span class="o">-</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[372, 349, 367, ..., 467, 449, 466],
+       [369, 365, 362, ..., 459, 455, 469],
+       [378, 367, 356, ..., 475, 458, 477],
+       ...,
+       [346, 362, 343, ..., 284, 282, 287],
+       [330, 346, 337, ..., 285, 273, 272],
+       [352, 348, 334, ..., 279, 271, 264]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even raise each pixel to a certain power using the normal power operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9553, 58368,  5828, ..., 24292,  7696, 23353],
+       [ 7312,  4352,  2153, ..., 16836, 13156, 26176],
+       [14089,  5828, 63345, ..., 31876, 15913, 33792],
+       ...,
+       [56265,  2153, 54180, ..., 16833, 15689, 18564],
+       [45353, 56265, 50064, ..., 17408, 10640, 10089],
+       [60489, 57665, 48033, ..., 13988,  9540,  5753]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, this is not some kind of matrix operation, <strong>the squaring operation is applied element-wise</strong>.</p>
+</div>
+<div class="section" id="numpy-functions">
+<h3>Numpy functions<a class="headerlink" href="#numpy-functions" title="Permalink to this headline">¶</a></h3>
+<p>In addition to this simple arithmetic, we can apply <strong>entire functions</strong> to these arrays. In particular Numpy has a wide range of functions that take arrays as inputs. For example, we can take the cosine of each element in an image using the <code class="docutils literal notranslate"><span class="pre">np.cos()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.40805453,  0.98998827,  0.7597075 , ...,  0.3258383 ,
+         0.925159  , -0.61949694],
+       [ 0.27513435, -0.9074341 ,  0.8390551 , ..., -0.982774  ,
+         0.7822497 ,  0.7240764 ],
+       [-0.64689636,  0.7597075 ,  0.6536208 , ...,  0.88795507,
+        -0.6865085 , -0.7877331 ],
+       ...,
+       [-0.96016186,  0.8390551 ,  0.91111785, ..., -0.44011596,
+        -0.6333425 ,  0.56242895],
+       [ 0.9999611 , -0.96016186,  0.7596683 , ...,  0.51779556,
+         0.89598435,  0.1104172 ],
+       [-1.        ,  0.65366644, -0.66029406, ...,  0.73621315,
+        -0.776667  , -0.99937433]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t create an exhaustive list of functions here. If you need a specific one the simplest is just to Google using “numpy name_of_your_operation” and the corresponding documentation should appear as first link.</p>
+<p>Above we have used a function that takes an array as input and returns again an array (of the same shape) as output. However there are functions that <em>summarize</em> the array and that return for example a single number. For example we can find the maximum value in the array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1568
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly for the min, mean, standard deviation etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>267
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>472.93142307692307
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172.53921546746614
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally note, that some of these functions are also available as <strong>methods</strong> attached to the variable itself. The two following lines are completely equivalent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1568
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1568
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-between-arrays">
+<h3>Operations between arrays<a class="headerlink" href="#operations-between-arrays" title="Permalink to this headline">¶</a></h3>
+<p>Above we have only seen operations that use a <em>single</em> array and that either modified the array or calculated some statistic. But we can also <strong>combine</strong> arrays in different ways, for example we can add two arrays. Again the operation happens <strong>element-wise</strong> and because of this we have to ensure that the two arrays have the <strong>same dimensions</strong>. If they don’t Numpy doesn’t know what to do with pixels that don’t have an equivalent in the other array.</p>
+<p>As we are studying image processing, let’s simulate noise in our image. We will take our <code class="docutils literal notranslate"><span class="pre">cropped</span></code> and add to it some noise (this is commonly done to test algorithms in degraded conditions). Let’s use again Poisson noise. Now we need to make sure that we create a noise-image that has the correct dimensions. Those are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(130, 200)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use that shape when creating the noise-array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">cropped</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we simply add the <code class="docutils literal notranslate"><span class="pre">cropped</span></code> image and the <code class="docutils literal notranslate"><span class="pre">noise_image</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corrupted</span> <span class="o">=</span> <span class="n">cropped</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="n">noise_image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_70_0.png" src="_images/02-Images_as_arrays_70_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">corrupted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_71_0.png" src="_images/02-Images_as_arrays_71_0.png" />
+</div>
+</div>
+<p>You can essentially use all common mathematical operations with arrays of same size.</p>
+</div>
+</div>
+<div class="section" id="logical-operations-and-indexing">
+<h2>Logical operations and indexing<a class="headerlink" href="#logical-operations-and-indexing" title="Permalink to this headline">¶</a></h2>
+<p>The last important topic concerns logical operations such as <span class="math notranslate nohighlight">\(a &gt; 3\)</span>. In basic Python we can use these kind of statements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the output tells us that the inequality is <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>. We can actually assign this output to a variable and check its type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="n">out</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we get a <strong>boolean</strong> variable. Boolean menas that this is a variable that can only take on two values: True or False (or 1 and 0). Now we can do the same thing with Numpy arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[375, 352, 370, ..., 470, 452, 469],
+       [372, 368, 365, ..., 462, 458, 472],
+       [381, 370, 359, ..., 478, 461, 480],
+       ...,
+       [349, 365, 346, ..., 287, 285, 290],
+       [333, 349, 340, ..., 288, 276, 275],
+       [355, 351, 337, ..., 282, 274, 267]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span> <span class="o">&gt;</span> <span class="mi">450</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False, ...,  True,  True,  True],
+       [False, False, False, ...,  True,  True,  True],
+       [False, False, False, ...,  True,  True,  True],
+       ...,
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the output is again a Numpy array and that it is filled with <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values: we have a <strong>boolean array</strong>. Again the comparison here was done <strong>element wise</strong>: each pixel was compared to the value 500 and the result stored in a new array. As with a simple number we can now save this <strong>boolean array</strong> as a variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_bool</span> <span class="o">=</span> <span class="n">cropped</span> <span class="o">&gt;</span> <span class="mi">450</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we are working with an image, what we have just done here is essentially <strong>thresholding</strong>: we created a binary image where pixels say <code class="docutils literal notranslate"><span class="pre">True</span></code> above the intensity threshold and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. We can actually plot the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">array_bool</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1647060a0&gt;
+</pre></div>
+</div>
+<img alt="_images/02-Images_as_arrays_86_1.png" src="_images/02-Images_as_arrays_86_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-Images_as_arrays_87_0.png" src="_images/02-Images_as_arrays_87_0.png" />
+</div>
+</div>
+<p>One very important operation that we can use now is to combine the image with the boolean array <strong>to extract only the <code class="docutils literal notranslate"><span class="pre">True</span></code> values</strong> from the image. You can imagine of using the logical array as a mask, superposing it onto the image and extracting only the pixel that are visible through the white regions. The drawing below explains this concept:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/guiwitz/ISDAwPython_day2/raw/master/images/logical_indexing.jpeg&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="https://github.com/guiwitz/ISDAwPython_day2/raw/master/images/logical_indexing.jpeg" width="700"/></div></div>
+</div>
+<p>This operation is performed by passing the boolean array (the indexing one) to the image in square parentheses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped</span><span class="p">[</span><span class="n">array_bool</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([468, 466, 465, ..., 496, 488, 472], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the output is just 1D array, a list of numbers. Imagine that you want to estimate the average fluorescent intensity in those structures. This is exactly how we would proceed:</p>
+<ol class="simple">
+<li><p>Find the objects of interest. Here we did it by (bad) manual thresholding</p></li>
+<li><p>Find which pixels belong to these objects. This is done here using the above <strong>logical indexing</strong> <code class="docutils literal notranslate"><span class="pre">cropped[array_bool]</span></code></p></li>
+<li><p>Finally compute the average of those values. This can simply be achieved by taking the <code class="docutils literal notranslate"><span class="pre">mean</span></code> of the above array:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extracted_pixels</span> <span class="o">=</span> <span class="n">cropped</span><span class="p">[</span><span class="n">array_bool</span><span class="p">]</span>
+<span class="n">extracted_pixels</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>658.8238455632335
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01-Python_essentials.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python and notebook basics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03-More_on_images.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3. More on images</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Guillaume Witz<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

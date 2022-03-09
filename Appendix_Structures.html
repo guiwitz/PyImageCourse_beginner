@@ -1,0 +1,1405 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python structures &#8212; Image processing with Python for beginners</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cheetsheet" href="Cheatsheet.html" />
+    <link rel="prev" title="Methods and functions" href="Appendix_Functions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Image processing for beginners
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python_essentials.html">
+   Python and notebook basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Images_as_arrays.html">
+   2. Images as arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-More_on_images.html">
+   3. More on images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Thresholding.html">
+   4. Thresholding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Filtering.html">
+   5. Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Regions.html">
+   6. Region properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Pipeline.html">
+   7. Creating a pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-Logical_flow.html">
+   8. Loops and conditions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Functions.html">
+   Methods and functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cheatsheet.html">
+   Cheetsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Demo.html">
+   Demo
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Appendix_Structures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Appendix_Structures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-lists">
+     Creating lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-indexes">
+     List indexes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#who-is-who">
+     Who is who ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-functions-and-methods">
+     Using functions and methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries">
+   Dictionaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#again-who-s-who">
+     Again who’s who ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping-dictionaries">
+     Grouping dictionaries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   Dataframes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-dataframe">
+     Creating a Dataframe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data">
+     Accessing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doing-statistics">
+     Doing statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-with-pandas">
+     Plotting with Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python structures</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-lists">
+     Creating lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-indexes">
+     List indexes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#who-is-who">
+     Who is who ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-functions-and-methods">
+     Using functions and methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries">
+   Dictionaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#again-who-s-who">
+     Again who’s who ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping-dictionaries">
+     Grouping dictionaries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   Dataframes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-dataframe">
+     Creating a Dataframe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-data">
+     Accessing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doing-statistics">
+     Doing statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-with-pandas">
+     Plotting with Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-structures">
+<h1>Python structures<a class="headerlink" href="#python-structures" title="Permalink to this headline">¶</a></h1>
+<p>We have now seen that we can define different types of variables and that we can operate on them using either classical mathematical operations or functions and methods. Sometimes we however operate on more than just one variable, and so we need to group them together in a coherent unit.</p>
+<p>Python offers several of these groupings, and we are going to look at two of them lists and dictionaries. If you want to proceed using Python, you should definitely study this more in detail, but in this course we are only going to use these two categories.</p>
+<div class="section" id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-lists">
+<h3>Creating lists<a class="headerlink" href="#creating-lists" title="Permalink to this headline">¶</a></h3>
+<p>Lists are basically collections of variables. One of the main property of lists is that each element can be modified <strong>after</strong> the list has been created, so it’s a “dynamic” object.</p>
+<p>Lists are surrounded by brackets [] and can be created like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">983</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can create lists of almost anything, for example strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or even mix different types, although it’s best to avoid</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">23.54</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, 10, 23.54]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="list-indexes">
+<h3>List indexes<a class="headerlink" href="#list-indexes" title="Permalink to this headline">¶</a></h3>
+<p>The simples operation one can do on lists is to recover some specific value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 983, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>983
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note that Python is based on 0 indexing, meaning that the first object has index 0 !</strong></p>
+<p>As said before, lists are dynamics objects, so one can reassign values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 25, 20]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="who-is-who">
+<h3>Who is who ?<a class="headerlink" href="#who-is-who" title="Permalink to this headline">¶</a></h3>
+<p>An aspect that can be very confusing in Python is that some objects are not really copied when you assign them to a new variable. Let’s clarify this. For example with simple numbers we have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>If now we modify <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">b</span></code> still has the old value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s do something similar with a list. We have a first list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">983</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 983, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we copy it to a new list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist2</span> <span class="o">=</span> <span class="n">mylist</span>
+<span class="n">mylist2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 983, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we modify the original list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happened to the second list ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>It was changed too!</strong> This is because the two objects <code class="docutils literal notranslate"><span class="pre">mylist</span></code> and <code class="docutils literal notranslate"><span class="pre">mylist2</span></code> share the same reference. They are not just copies but the same object. If you really want to create an <strong>independent</strong> copy of the first list, you can use the <code class="docutils literal notranslate"><span class="pre">copy()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist2</span> <span class="o">=</span> <span class="n">mylist</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">mylist2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can change <code class="docutils literal notranslate"><span class="pre">mylist</span></code> without affecting <code class="docutils literal notranslate"><span class="pre">mylist2</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7000</span>
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7000, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 5, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-functions-and-methods">
+<h3>Using functions and methods<a class="headerlink" href="#using-functions-and-methods" title="Permalink to this headline">¶</a></h3>
+<p>Just like other variables, lists have associated functions and methods. One built-in function that we have already seen is e.g. len():</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list contains indeed four elements. We can again find all associated functions using dir():</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__add__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__delitem__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__iadd__&#39;,
+ &#39;__imul__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__mul__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__reversed__&#39;,
+ &#39;__rmul__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;append&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;count&#39;,
+ &#39;extend&#39;,
+ &#39;index&#39;,
+ &#39;insert&#39;,
+ &#39;pop&#39;,
+ &#39;remove&#39;,
+ &#39;reverse&#39;,
+ &#39;sort&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Some of the methods are important and we will use them very often</strong>. For example <code class="docutils literal notranslate"><span class="pre">append()</span></code> to add values to a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7000, 10000, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">230</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7000, 10000, 20, 230]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see here that the list has been modified <strong>in place</strong>, we didn’t have to reassign the result to a new variable. The append function is important as we will often start with an empty list and fill it progressively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 30]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes it’s useful to store very diverse information into a single container, and in that case, it is also useful to be able to remember what exactly was stored in that container. For that we can use dictionaries. As the name says those structures are basically composed of pairs of “words” and “definitions”, where the definition can be a number, a string, a list etc… Let’s imagine we have been detecting a cell in an image and want to store its location, size and type. We can define the following dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;location_row&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;location_col&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;surface&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;embryonic&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now whenever we want to recover the cell size, we can find it using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span><span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="again-who-s-who">
+<h3>Again who’s who ?<a class="headerlink" href="#again-who-s-who" title="Permalink to this headline">¶</a></h3>
+<p>Dictionaries behave in the same way as lists: a simple copy is not a true copy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict2</span> <span class="o">=</span> <span class="n">mydict</span>
+<span class="n">mydict</span><span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">mydict2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;location_col&#39;: 23, &#39;location_row&#39;: 10, &#39;surface&#39;: 5000, &#39;type&#39;: &#39;embryonic&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;location_col&#39;: 23, &#39;location_row&#39;: 10, &#39;surface&#39;: 5000, &#39;type&#39;: &#39;embryonic&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;location_col&#39;: 23, &#39;location_row&#39;: 10, &#39;surface&#39;: 5000, &#39;type&#39;: &#39;embryonic&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also if you adde a new key, it will appear in both copies:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict2</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;location_col&#39;: 23,
+ &#39;location_row&#39;: 10,
+ &#39;surface&#39;: 5000,
+ &#39;test&#39;: 30,
+ &#39;type&#39;: &#39;embryonic&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="grouping-dictionaries">
+<h3>Grouping dictionaries<a class="headerlink" href="#grouping-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>If we imagine that we have three detected cells, we can then group all the information within a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;location_row&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;location_col&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;surface&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;embryonic&#39;</span><span class="p">}</span>
+<span class="n">mydict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;location_row&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;location_col&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;surface&#39;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;embryonic&#39;</span><span class="p">}</span>
+<span class="n">mydict3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;location_row&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;location_col&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;surface&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;embryonic&#39;</span><span class="p">}</span>
+
+<span class="n">all_cells</span> <span class="o">=</span> <span class="p">[</span><span class="n">mydict</span><span class="p">,</span> <span class="n">mydict2</span><span class="p">,</span> <span class="n">mydict3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_cells</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;location_col&#39;: 23, &#39;location_row&#39;: 10, &#39;surface&#39;: 120, &#39;type&#39;: &#39;embryonic&#39;},
+ {&#39;location_col&#39;: 18, &#39;location_row&#39;: 32, &#39;surface&#39;: 130, &#39;type&#39;: &#39;embryonic&#39;},
+ {&#39;location_col&#39;: 5, &#39;location_row&#39;: 23, &#39;surface&#39;: 90, &#39;type&#39;: &#39;embryonic&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can recover all the “words” that are defined using the key() method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;location_row&#39;, &#39;location_col&#39;, &#39;surface&#39;, &#39;type&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataframes">
+<h2>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h2>
+<p>What native Python is lacking is a data format that simplifies handling of tabular data and doing statistics on them. Whit this I mean something lile an Excel sheet where you have multiple columns and for example take an average for each column. This type of tabular data is provided by the Pandas package, and its <strong>Dataframe</strong> structure. We will see here only a tiny fraction of the possibilities offered by Pandas, so read more about it if you think it might help you. Let’s import Pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-dataframe">
+<h3>Creating a Dataframe<a class="headerlink" href="#creating-a-dataframe" title="Permalink to this headline">¶</a></h3>
+<p>Dataframes can be created from scratch and filled with data. However what will happen most of the time, is that we will get some result in native Python format and will transform it into a dataframe. We can do this immediately with our list of dictionaries. For that we just use the <code class="docutils literal notranslate"><span class="pre">DataFrame()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_cells</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_row</th>
+      <th>location_col</th>
+      <th>surface</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>23</td>
+      <td>120</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32</td>
+      <td>18</td>
+      <td>130</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>5</td>
+      <td>90</td>
+      <td>embryonic</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We see that the dataframe is shown in a nicely formatted way. Also since we used a list of dictionaries, Pandas was smart enough to infer for us how the table should be made.</p>
+<p>We can also create a dataframe from a 2D list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_cells_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="s1">&#39;embryonic&#39;</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="s1">&#39;embryonic&#39;</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="s1">&#39;embryonic&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_cells_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[10, 23, 120, &#39;embryonic&#39;], [32, 18, 130, &#39;embryonic&#39;], [23, 5, 90, &#39;embryonic&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Without columns name specification, simple numbers are used as headers and indices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_cells_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>23</td>
+      <td>120</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32</td>
+      <td>18</td>
+      <td>130</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>5</td>
+      <td>90</td>
+      <td>embryonic</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can pass a second parameter called <code class="docutils literal notranslate"><span class="pre">columns</span></code> to specific headers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_cells_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;surf&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>surf</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>23</td>
+      <td>120</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32</td>
+      <td>18</td>
+      <td>130</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>5</td>
+      <td>90</td>
+      <td>embryonic</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="accessing-data">
+<h3>Accessing data<a class="headerlink" href="#accessing-data" title="Permalink to this headline">¶</a></h3>
+<p>Let’s remember what’s in <code class="docutils literal notranslate"><span class="pre">mydataframe</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_row</th>
+      <th>location_col</th>
+      <th>surface</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>23</td>
+      <td>120</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32</td>
+      <td>18</td>
+      <td>130</td>
+      <td>embryonic</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>5</td>
+      <td>90</td>
+      <td>embryonic</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Using dataframes, we can recover entire columns very easily. For example if we want to recover the <code class="docutils literal notranslate"><span class="pre">surface</span></code> parameter for all columns we have two choices:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">surface</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    120
+1    130
+2     90
+Name: surface, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    120
+1    130
+2     90
+Name: surface, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want to recover the data of a specific cell, for example of the second row, we have to use the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> method. <strong>Note that this method used brackets and not parenthesis</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>location_row           32
+location_col           18
+surface               130
+type            embryonic
+Name: 1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="doing-statistics">
+<h3>Doing statistics<a class="headerlink" href="#doing-statistics" title="Permalink to this headline">¶</a></h3>
+<p>Pandas provides extensive tools to analyze the data contained in a dataframe. We are going to do only very simple operations to illustrate to power of this approach. For example we can easily calculate all the means for each column</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>location_row     21.666667
+location_col     15.333333
+surface         113.333333
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>You see that Pandas is smart enough to do the work only on columns that contain numbers. Same thing for median, standard deviation etc.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>location_row    11.060440
+location_col     9.291573
+surface         20.816660
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>location_row     23.0
+location_col     18.0
+surface         120.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we don’t want to do the caluclation for the entire table, we can alos just do it for one variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113.33333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>or</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113.33333333333333
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-with-pandas">
+<h3>Plotting with Pandas<a class="headerlink" href="#plotting-with-pandas" title="Permalink to this headline">¶</a></h3>
+<p>A last nice feature of Pandas is the possibility to direcly plot data without using the classical Matplotlib commands:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydataframe</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Appendix_Structures_103_0.png" src="_images/Appendix_Structures_103_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Appendix_Functions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Methods and functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cheatsheet.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cheetsheet</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Guillaume Witz<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

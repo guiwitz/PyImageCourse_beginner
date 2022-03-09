@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Loops and conditions &#8212; Image processing with Python for beginners</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Methods and functions" href="Appendix_Functions.html" />
+    <link rel="prev" title="7. Creating a pipeline" href="07-Pipeline.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Image processing for beginners
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python_essentials.html">
+   Python and notebook basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Images_as_arrays.html">
+   2. Images as arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-More_on_images.html">
+   3. More on images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Thresholding.html">
+   4. Thresholding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Filtering.html">
+   5. Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Regions.html">
+   6. Region properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Pipeline.html">
+   7. Creating a pipeline
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Loops and conditions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Functions.html">
+   Methods and functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Structures.html">
+   Python structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cheatsheet.html">
+   Cheetsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Demo.html">
+   Demo
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/08-Logical_flow.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/08-Logical_flow.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements">
+   Conditional statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-looping">
+   Simple looping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looping-using-a-range">
+   Looping using a range
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixing-for-and-if">
+   Mixing for and if
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>8. Loops and conditions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements">
+   Conditional statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-looping">
+   Simple looping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looping-using-a-range">
+   Looping using a range
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixing-for-and-if">
+   Mixing for and if
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="loops-and-conditions">
+<h1>8. Loops and conditions<a class="headerlink" href="#loops-and-conditions" title="Permalink to this headline">¶</a></h1>
+<p>In the Pipeline notebook, we learned how to package our workflow into a function. To make the pipeline work correctly we discovered that we needed:</p>
+<ul class="simple">
+<li><p>a way to decide if we wanted to perform a certain action (plotting) or not using <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p>repeatedly use the same function for multiple images using <code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
+</ul>
+<p>Here we explore more in details how these two code organizing feature work.</p>
+<div class="section" id="conditional-statements">
+<h2>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h2>
+<p>When automating operations, we sometimes want to make sure that we only do the operation in some particular case. We say “if this condition is true, then do the operation”. The way to write this in Python is with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. The syntax is similar to the for loop with the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement followed by a condition and <code class="docutils literal notranslate"><span class="pre">:</span></code> and then an indented (shifted to the right) block:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>yes
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want to execute another operation if the condition is not met we can use an elif statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;smaller than 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;smaller than 5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>smaller than 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the if statement stops the <strong>first</strong> time a condition is verified. Finally we can use the else statement if none of the previous conditions is realized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;smaller than 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;smaller than 5&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;larger than 5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>larger than 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-looping">
+<h2>Simple looping<a class="headerlink" href="#simple-looping" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> statement allows us to repeatedly execute a code of block that follows this statement. <code class="docutils literal notranslate"><span class="pre">for</span></code> is executed for each element in a list. That element of the list can be only used for counting purposes (I want to repeat the operation 3 times, so <code class="docutils literal notranslate"><span class="pre">for</span></code> is applied for each element in the list <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code> or I can actually use the elements if the list if they have a meaning.</p>
+<p>Let’s see an example with a simple list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">27</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s imagine now that we want to calculate the square of each of these numbers. In English, one would say that “<strong>for</strong> each element <strong>in</strong> mylist, calculate the square of the element”.</p>
+<p>Luckily the Python syntax is designed to be intuitive and the Python code that does this is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>x just stands for the currently selected element from mylist. Note that:</p>
+<ol class="simple">
+<li><p>The for loop starts with the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement</p></li>
+<li><p>The list used for iteration is specified, here <code class="docutils literal notranslate"><span class="pre">mylist</span></code></p></li>
+<li><p>Again the for loop definition ends with <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+<li><p>The content of the loop is <strong>indented</strong></p></li>
+</ol>
+<p>You can also note that when we execute the cell nothing happens. This is because no graphical output is generated fro for loops. If we want to see the actual value we have to use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="n">value_squared</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>729
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only the last value is printed because we put the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function outside the loop. If we want to see each value we have to <strong>indent</strong> the <code class="docutils literal notranslate"><span class="pre">print()</span></code> call so that it is included in the loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="n">value_squared</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
+9
+81
+400
+729
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="looping-using-a-range">
+<h2>Looping using a range<a class="headerlink" href="#looping-using-a-range" title="Permalink to this headline">¶</a></h2>
+<p>Often we don’t want to loop over the content of a list but just want to do some operation N times or for indexes from 0 to N. To do that, we can use the built-in <code class="docutils literal notranslate"><span class="pre">range()</span></code> function that just does this: it provides numbers within a certainrange. The function doesn’t really produce a list per se but can be used as if it were one. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that as always the first index is not 0 but 8. Of course we could use these indexes to access specific parts of a list. Coming back to the previous example, we might want to calculate the square only of the three first numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">value_squared</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
+9
+81
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">mylist[x]</span></code> we simply use the numbers generated by <code class="docutils literal notranslate"><span class="pre">range()</span></code> as indexes of our list.</p>
+<p>Another type of loop available in most programming languages is the while loop. We are not going to used it today, but you should definitely learn about it.</p>
+</div>
+<div class="section" id="mixing-for-and-if">
+<h2>Mixing for and if<a class="headerlink" href="#mixing-for-and-if" title="Permalink to this headline">¶</a></h2>
+<p>Let’s mix both <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> logics and say now that we only want to calculate the square of numbers larger than 10 in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>. We can integrate our <code class="docutils literal notranslate"><span class="pre">if</span></code> condition in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">27</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    
+        <span class="n">value_squared</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">value_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400
+729
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how we create different levels of indentation. Everything which belongs to the for loop is indented once, including the if statement. But everything that belongs to the if statement is also indented relative to it, and so ends up <strong>indented twice</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="07-Pipeline.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">7. Creating a pipeline</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Appendix_Functions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Methods and functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Guillaume Witz<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

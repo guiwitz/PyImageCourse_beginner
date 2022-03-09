@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python and notebook basics &#8212; Image processing with Python for beginners</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Images as arrays" href="02-Images_as_arrays.html" />
+    <link rel="prev" title="Image processing for beginners" href="Readme.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Image processing for beginners
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python and notebook basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Images_as_arrays.html">
+   2. Images as arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-More_on_images.html">
+   3. More on images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Thresholding.html">
+   4. Thresholding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Filtering.html">
+   5. Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Regions.html">
+   6. Region properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Pipeline.html">
+   7. Creating a pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-Logical_flow.html">
+   8. Loops and conditions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Functions.html">
+   Methods and functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix_Structures.html">
+   Python structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cheatsheet.html">
+   Cheetsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Demo.html">
+   Demo
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01-Python_essentials.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-Python_essentials.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables">
+   Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-as-objects">
+   Variables as objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   Packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-functions">
+     Importing functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structures">
+   Structures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python and notebook basics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables">
+   Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-as-objects">
+   Variables as objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   Packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-functions">
+     Importing functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structures">
+   Structures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-and-notebook-basics">
+<h1>Python and notebook basics<a class="headerlink" href="#python-and-notebook-basics" title="Permalink to this headline">¶</a></h1>
+<p>In this first chapter, we will cover the very essentials of Python and notebooks such as creating a variable, importing packages, using functions, seeing how variables behave in the notebook etc. We will see more details on some of these topics, but this very short introduction will then allow us to quickly dive into more applied and image processing specific topics without having to go through a full Python introduction.</p>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>Like we would do in mathematics when we define variables in equations such as <span class="math notranslate nohighlight">\(x=3\)</span>, we can do the same in all programming languages. Python has one of the simplest syntax for this, i.e. exactly as we would do it naturally. Let’s define a variable in the next cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As long as we <strong>don’t execute the cell</strong> using Shift+Enter or the play button in the menu, the above cell is <strong>purely text</strong>. We can close our Jupyter session and then re-start it and this line of text will still be there. However other parts of the notebook are not “aware” that this variable has been defined and so we can’t re-use anywhere else. For example if we type <code class="docutils literal notranslate"><span class="pre">a</span></code> again and execute the cell, we get an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/var/folders/mk/632_7fgs4v374qc935pvf9v00000gn/T/ipykernel_18079/2167009006.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span>
+
+<span class="ne">NameError</span>: name &#39;a&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we actually need to <strong>execute</strong> the cell so that Python reads that line and executes the command. Here it’s a very simple command that just says that the value of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> is three. So let’s go back to the cell that defined <code class="docutils literal notranslate"><span class="pre">a</span></code> and now execute it (click in the cell and hit Shift+Enter). Now this variable is <strong>stored in the computing memory</strong> of the computer and we can re-use it anywhere in the notebook (but only in <strong>this</strong> notebook)!</p>
+<p>We can again just type <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that now we get an <em>output</em> with the value three. Most variables display an output when they are not involved in an operation. For example the line <code class="docutils literal notranslate"><span class="pre">a=3</span></code> didn’t have an output.</p>
+<p>Now we can define other variables in a new cell. Note that we can put as <strong>many lines</strong> of commands as we want in a single cell. Each command just need to be on a new line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As variables are defined for the entire notebook we can combine information that comes from multiple cells. Here we do some basic mathematics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we only see the output. We can’t re-use that ouput for further calculations as we didn’t define a new variable to contain it. Here we do it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">d</span></code> is now a new variable. It is purely numerical and not a mathematical formula as the above cell could make you believe. For example if we change the value of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and check the value of <code class="docutils literal notranslate"><span class="pre">d</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>it has not change. We would have to rerun the operation and assign it again to <code class="docutils literal notranslate"><span class="pre">d</span></code> for it to update:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>105
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will see many other types of variables during the course. Some are just other types of data, for example we can define a <strong>text</strong> variable by using quotes <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> around a given text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span> <span class="o">=</span> <span class="s1">&#39;This is my text&#39;</span>
+<span class="n">my_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;This is my text&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Others can contain multiple elements like lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">my_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 8, 5, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>but more on these data structures later…</p>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>We have seen that we could define variables and do some basic operations with them. If we want to go beyond simple arithmetic we need more <strong>complex functions</strong> that can operate on variables. Imagine for example that we need a function <span class="math notranslate nohighlight">\(f(x, a, b) = a * x + b\)</span>. For this we can use and <strong>define functions</strong>. Here’s how we can define the previous function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see a series of Python rules to define a function:</p>
+<ul class="simple">
+<li><p>we use the word <strong><code class="docutils literal notranslate"><span class="pre">def</span></code></strong> to signal that we are creating a function</p></li>
+<li><p>we pick a <strong>function name</strong>, here <code class="docutils literal notranslate"><span class="pre">my_fun</span></code></p></li>
+<li><p>we open the <strong>parenthesis</strong> and put all our <strong>variables <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code></strong> in there, just like when we do mathematics</p></li>
+<li><p>we do some operation inside the function. <strong>Inside</strong> the function is signal with the <strong>indentation</strong>: everything that belong inside the function (there could be many more lines) is shifted by a <em>single tab</em> or <em>three space</em> to the right</p></li>
+<li><p>we use the word <strong><code class="docutils literal notranslate"><span class="pre">return</span></code></strong> to tell what is the output of the function, here the variable <code class="docutils literal notranslate"><span class="pre">out</span></code></p></li>
+</ul>
+<p>We can now use this function as if we were doing mathematics: we pick a a value for the three parameters e.g. <span class="math notranslate nohighlight">\(f(3, 2, 5)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_fun</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <strong>some functions are defined by default</strong> in Python. For example if I define a variable which is a string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span> <span class="o">=</span> <span class="s1">&#39;This is my text&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I can count the number of characters in this text using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function which comes from base Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">my_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">len</span></code> function has not been manually defined within a <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, it simply exist by default in the Python language.</p>
+</div>
+<div class="section" id="variables-as-objects">
+<h2>Variables as objects<a class="headerlink" href="#variables-as-objects" title="Permalink to this headline">¶</a></h2>
+<p>In the Python world, variables are not “just” variables, they are actually more complex objects. So for example our variable <code class="docutils literal notranslate"><span class="pre">my_text</span></code> does indeed contain the text <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">text</span></code> but it contains also additional features. The way to access those features is to use the dot notation <code class="docutils literal notranslate"><span class="pre">my_text.some_feature</span></code>. There are two types of featues:</p>
+<ul class="simple">
+<li><p>functions, called here methods, that do some computation or modify the variable itself</p></li>
+<li><p>properties, that contain information about the variable</p></li>
+</ul>
+<p>For example the object <code class="docutils literal notranslate"><span class="pre">my_text</span></code> has a function attached to it that allows us to put all letters to lower case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;This is my text&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;this is my text&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we define a complex number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="n">j</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>then we can access the property <code class="docutils literal notranslate"><span class="pre">real</span></code> that gives us only the real part of the number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">real</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that when we use a method (function) we need to use the parenthesis, just like for regular functions, while for properties we don’t.</p>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<p>In the examples above, we either defined a function ourselves or used one generally accessible in base Python but there is a third solution: <strong>external packages</strong>. These packages are collections of functions used in a specific domain that are made available to everyone via specialized online repositories. For example we will be using in this course a package called <a class="reference external" href="https://scikit-image.org/">scikit-image</a> that implements a large number of functions for image processing. For example if we want to filter an image stored in a variable <code class="docutils literal notranslate"><span class="pre">im_in</span></code> with a median filter, we can then just use the <code class="docutils literal notranslate"><span class="pre">median()</span></code> function of scikit-image and apply it to an image <code class="docutils literal notranslate"><span class="pre">im_out</span> <span class="pre">=</span> <span class="pre">median(im_in)</span></code>. The question is now: how do we access these functions?</p>
+<div class="section" id="importing-functions">
+<h3>Importing functions<a class="headerlink" href="#importing-functions" title="Permalink to this headline">¶</a></h3>
+<p>The answer is that we have to <strong>import</strong> the functions we want to use in a <em>given notebook</em> from a package to be able to use them. First the package needs to be <strong>installed</strong>. One of the most popular place where to find such packages is the PyPi repository. We can install packages from there using the following command either in a <strong>terminal or directly in the notebook</strong>. For example for <a class="reference external" href="https://pypi.org/project/scikit-image/">scikit-image</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-image in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (0.19.2)
+Requirement already satisfied: networkx&gt;=2.2 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (2.7.1)
+Requirement already satisfied: tifffile&gt;=2019.7.26 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (2022.2.9)
+Requirement already satisfied: PyWavelets&gt;=1.1.1 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (1.2.0)
+Requirement already satisfied: pillow!=7.1.0,!=7.1.1,!=8.3.0,&gt;=6.1.0 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (9.0.1)
+Requirement already satisfied: scipy&gt;=1.4.1 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (1.8.0)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (21.3)
+Requirement already satisfied: imageio&gt;=2.4.1 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (2.16.1)
+Requirement already satisfied: numpy&gt;=1.17.0 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from scikit-image) (1.22.2)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /Users/gw18g940/mambaforge/envs/improc_beginner/lib/python3.9/site-packages (from packaging&gt;=20.0-&gt;scikit-image) (3.0.7)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once installed we can <strong>import</strong> the packakge in a notebook in the following way (note that the name of the package is scikit-image, but in code we use an abbreviated name <code class="docutils literal notranslate"><span class="pre">skimage</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skimage</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The import is valid for the <strong>entire notebook</strong>, we don’t need that line in each cell.</p>
+<p>Now that we have imported the package we can access all function that we define in it using a <em>dot notation</em> <code class="docutils literal notranslate"><span class="pre">skimage.myfun</span></code>. Most packages are organized into submodules and in that case to access functions of a submodule we use <code class="docutils literal notranslate"><span class="pre">skimage.my_submodule.myfun</span></code>.</p>
+<p>To come back to the previous example: the <code class="docutils literal notranslate"><span class="pre">median</span></code> filtering function is in the <code class="docutils literal notranslate"><span class="pre">filters</span></code> submodule that we could now use as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im_out</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">im_in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We cannot execute this command as the variables <code class="docutils literal notranslate"><span class="pre">im_in</span></code> and <code class="docutils literal notranslate"><span class="pre">im_out</span></code> are not yet defined.</p>
+<p>Note that there are multiple ways to import packages. For example we could give another name to the package, using the <code class="docutils literal notranslate"><span class="pre">as</span></code> statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skimage</span> <span class="k">as</span> <span class="nn">sk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nowe if we want to use the <code class="docutils literal notranslate"><span class="pre">median</span></code> function in the filters sumodule we would write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im_out</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">im_in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also import only a certain submodule using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have to write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im_out</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">im_in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we can import a <strong>single</strong> function like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.filters</span> <span class="kn">import</span> <span class="n">median</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and now we have to write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im_out</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">im_in</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above we cannot execute those various lines like <code class="docutils literal notranslate"><span class="pre">im_out</span> <span class="pre">=</span> <span class="pre">median(im_in)</span></code> because the image variable <code class="docutils literal notranslate"><span class="pre">im_in</span></code> is not yet defined. This variable should be an image, i.e. it cannot be a single number like in <code class="docutils literal notranslate"><span class="pre">a=3</span></code> but an entire grid of values, each value being one pixel. We therefore need a specific variable type that can contain such a structure.</p>
+<p>We have already seen that we can define different types of variables. Single numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;my text&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or even lists of numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This last type of variable is called a <code class="docutils literal notranslate"><span class="pre">list</span></code> in Python and is one of the <strong>structures</strong> that is available in Python. If we think of an image that has multiple lines and columns of pixels, we could now imagine that we can represent it as a list of lists, each single list being e.g. one row pf pixels. For example a 3 x 3 image could be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_image</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]]</span>
+<span class="n">my_image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4, 8, 7], [6, 4, 3], [5, 3, 7]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>While in principle we could use a <code class="docutils literal notranslate"><span class="pre">list</span></code> for this, computations on such objects would be very slow. For example if we wanted to do background correction and subtract a given value from our image, effectively we would have to go through each element of our list (each pixel) one by one and sequentially remove the background from each pixel. If the background is 3 we would have therefore to compute:</p>
+<ul class="simple">
+<li><p>4-3</p></li>
+<li><p>8-3</p></li>
+<li><p>7-3</p></li>
+<li><p>6-3</p></li>
+</ul>
+<p>etc. Since operations are done sequentially this would be very slow as we couldn’t exploit the fact that most computers have multiple processors. Also it would be tedious to write such an operation.</p>
+<p>To fix this, most scientific areas that use lists of numbers of some kind (time-series, images, measurements etc.) resort to an <strong>external package</strong> called <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> which offers a <strong>computationally efficient list</strong> called an <strong>array</strong>.</p>
+<p>To make this clearer we now import an image in our notebook to see such a structure. We will use a <strong>function</strong> from the scikit-image package to do this import. That function called <code class="docutils literal notranslate"><span class="pre">imread</span></code> is located in the submodule called <code class="docutils literal notranslate"><span class="pre">io</span></code>. Remember that we can then access this function with <code class="docutils literal notranslate"><span class="pre">skimage.io.imread()</span></code>. Just like we previously defined a function <span class="math notranslate nohighlight">\(f(x, a, b)\)</span> that took inputs <span class="math notranslate nohighlight">\(x, a, b\)</span>, this <code class="docutils literal notranslate"><span class="pre">imread()</span></code> function also needs an input. Here it is just the <strong>location of the image</strong>, and that location can either be the <strong>path</strong> to the file on our computer or a <strong>url</strong> of an online place where the image is stored. Here we use an image that can be found at <a class="reference external" href="https://github.com/guiwitz/PyImageCourse_beginner/raw/master/images/19838_1252_F8_1.tif">https://github.com/guiwitz/PyImageCourse_beginner/raw/master/images/19838_1252_F8_1.tif</a>. As you can see it is a tif file. This address that we are using as an input should be formatted as text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_address</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/guiwitz/PyImageCourse_beginner/raw/master/images/19838_1252_F8_1.tif&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can call our function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">my_address</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[42, 48,  0],
+        [45, 41,  0],
+        [47, 21,  0],
+        ...,
+        [78, 16,  1],
+        [57, 14,  0],
+        [53,  7,  0]],
+
+       [[42, 57,  0],
+        [37, 40,  0],
+        [38, 30,  0],
+        ...,
+        [97,  7,  0],
+        [67, 12,  0],
+        [57,  9,  1]],
+
+       [[42, 55,  0],
+        [44, 40,  0],
+        [31, 29,  0],
+        ...,
+        [79,  0,  0],
+        [67,  1,  0],
+        [61,  1,  0]],
+
+       ...,
+
+       [[ 0,  0,  0],
+        [ 0,  0,  0],
+        [ 0,  0,  0],
+        ...,
+        [65, 37,  0],
+        [54, 37,  0],
+        [47, 49,  0]],
+
+       [[ 0,  0,  0],
+        [ 0,  0,  0],
+        [ 0,  0,  0],
+        ...,
+        [75, 41,  0],
+        [59, 44,  0],
+        [54, 74,  0]],
+
+       [[ 0,  0,  0],
+        [ 0,  0,  0],
+        [ 0,  0,  0],
+        ...,
+        [82, 51,  0],
+        [62, 48,  0],
+        [57, 69,  0]]], dtype=uint8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see here an output which is what is returned by our function. It is as expected a list of numbers, and not all numbers are shown because the list is too long. We see that we also have <code class="docutils literal notranslate"><span class="pre">[]</span></code> to specify rows, columns etc. The main difference compared to our list of lists that we defined previously is the <code class="docutils literal notranslate"><span class="pre">array</span></code> indication at the very beginning of the list of numbers. This <code class="docutils literal notranslate"><span class="pre">array</span></code> indication tells us that we are dealing with a <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> array, this alternative type of list of lists that will allow us to do efficient computations.</p>
+</div>
+<div class="section" id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h2>
+<p>We will see a few ways to represent data during the course. Here we just want to have a quick look at the image we just imported. For plotting we will use yet another <strong>external library</strong> called Matplotlib. That library is extensively used in the Python world and offers extensive choices of plots. We will mainly use one <strong>function</strong> from the library to display images: <code class="docutils literal notranslate"><span class="pre">imshow</span></code>. Again, to access that function, we first need to import the package. Here we need a specific submodule:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. There are many options for plot, but we can use that function already by just passing an <code class="docutils literal notranslate"><span class="pre">array</span></code> as an input. First we need to assign the imported array to a variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skimage.io</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">my_address</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/01-Python_essentials_73_0.png" src="_images/01-Python_essentials_73_0.png" />
+</div>
+</div>
+<p>We see that we are dealing with a multi-channel image and can already distinguish cell nuclei (blue) and cytoplasm (red).</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Readme.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Image processing for beginners</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02-Images_as_arrays.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Images as arrays</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Guillaume Witz<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
