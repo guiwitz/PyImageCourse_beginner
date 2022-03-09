@@ -1,0 +1,6 @@
+# Book settings
+title: Image processing with Python for beginners
+author: Guillaume Witz
+#logo: 'logo.png'
+execute:
+  execute_notebooks: "off"
