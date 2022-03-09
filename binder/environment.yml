@@ -1,4 +1,4 @@
-name: improc_beginner_corr
+name: improc_beginner
 channels:
   - conda-forge
 dependencies:
@@ -12,7 +12,8 @@ dependencies:
   - pandas
   - jupyter_contrib_nbextensions
   - ipympl
-  - nbgrader
   - pip:
     - requests
     - lckr-jupyterlab-variableinspector
+    - microfilm
+    - napari[all]
