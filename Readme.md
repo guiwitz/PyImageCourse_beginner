@@ -1,5 +1,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/PyImageCourse_beginner/master?urlpath=lab)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/PyImageCourse_beginner/blob/master)
+[![launch - renku](https://img.shields.io/badge/launch-renku-2ea44f?logo=python)](https://renkulab.io/projects/guillaume.witz2/pyimagecourse-beginner/sessions/new?autostart=1)
 [![DOI](https://zenodo.org/badge/173477371.svg)](https://zenodo.org/badge/latestdoi/173477371)
 
 # Image processing for beginners
