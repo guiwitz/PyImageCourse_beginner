@@ -1,5 +1,5 @@
 format: jb-book
-root: Readme
+root: README
 chapters:
 - file: 01-Python_essentials
 - file: 02-Images_as_arrays
